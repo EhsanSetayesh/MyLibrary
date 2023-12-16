@@ -61,7 +61,7 @@ android {
             buildConfigField(
                 "String",
                 "BASE_URL",
-                "\"https://postman-library-api.glitch.me/books/\""
+                "\"https://postman-library-api.glitch.me/\""
             )
             applicationIdSuffix = ".stage"
         }
@@ -92,7 +92,7 @@ android {
     }
 //__________________________________________________________________________________________________
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
 //__________________________________________________________________________________________________
     // Hilt-Allow references to generated code
