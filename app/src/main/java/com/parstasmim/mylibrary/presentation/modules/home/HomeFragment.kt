@@ -9,8 +9,10 @@ import com.parstasmim.mylibrary.domain.models.BookBean
 import com.parstasmim.mylibrary.extensions.findNavControllerSafely
 import com.parstasmim.mylibrary.extensions.processMessageQueue
 import com.parstasmim.mylibrary.presentation.base.BaseFragment
+import com.parstasmim.mylibrary.utils.RandomColorGenerator
 import com.parstasmim.mylibrary.utils.state.StateMessageCallback
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment :
@@ -19,8 +21,8 @@ class HomeFragment :
     private val _viewModel: HomeViewModel by viewModels()
 
     private val booksListAdapter: BooksListAdapter by lazy {
-        BooksListAdapter {
-            //todo on item click not implemented
+        BooksListAdapter(_viewModel.randomColorGenerator) {
+
         }
     }
 

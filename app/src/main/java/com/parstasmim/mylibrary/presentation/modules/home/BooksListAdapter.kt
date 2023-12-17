@@ -1,16 +1,22 @@
 package com.parstasmim.mylibrary.presentation.modules.home
 
 import android.content.Context
+import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.parstasmim.mylibrary.databinding.ListItemBookBinding
 import com.parstasmim.mylibrary.domain.models.BookBean
 import com.parstasmim.mylibrary.presentation.base.BaseHolder
+import com.parstasmim.mylibrary.utils.IRandomColorGenerator
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class BooksListAdapter(
-    val onBookItemClicked: (BookBean) -> Unit,
+class BooksListAdapter @Inject constructor(
+    val randomColorGenerator: IRandomColorGenerator,
+    private val onBookItemClicked: (BookBean) -> Unit,
 ) :
     ListAdapter<BookBean, BaseHolder<BookBean>>(object :
         DiffUtil.ItemCallback<BookBean>() {
@@ -61,7 +67,12 @@ class BooksListAdapter(
                 txtBookGenre.text = value.genre
                 txtBookCheckout.text = if(value.checkedOut == true) "Checked Out" else "Not Checked Out"
                 txtBookYearOfPublished.text = value.yearPublished.toString()
+                setRandomTintColor(imgBook)
             }
+        }
+        private fun setRandomTintColor(imageView: ImageView) {
+            val randomColor = randomColorGenerator.getRandomColor()
+            imageView.setColorFilter(randomColor, PorterDuff.Mode.SRC_ATOP)
         }
     }
 }

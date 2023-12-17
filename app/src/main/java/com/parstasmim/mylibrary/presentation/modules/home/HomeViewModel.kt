@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.parstasmim.mylibrary.domain.usecases.get_books.GetBooksUseCase
+import com.parstasmim.mylibrary.utils.IRandomColorGenerator
 import com.parstasmim.mylibrary.utils.state.StateMessage
 import com.parstasmim.mylibrary.utils.state.UIComponentType
 import com.parstasmim.mylibrary.utils.state.doesMessageAlreadyExistInQueue
@@ -15,6 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
+    val randomColorGenerator: IRandomColorGenerator,
     private val getBooksUseCase: GetBooksUseCase
 ) : ViewModel() {
 

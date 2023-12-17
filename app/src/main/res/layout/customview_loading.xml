@@ -25,7 +25,7 @@
             android:indeterminate="false"
             android:max="100"
             android:progress="1"
-            android:indeterminateTint="@color/white_100"/>
+            android:indeterminateTint="@color/black_700"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 

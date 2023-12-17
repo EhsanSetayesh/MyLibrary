@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
     </data>
@@ -15,9 +16,9 @@
 
         <ImageView
             android:id="@+id/imgBook"
-            android:layout_width="100dp"
+            android:layout_width="85dp"
             android:layout_height="100dp"
-            android:src="@drawable/ic_book3"
+            android:src="@drawable/ic_book1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"/>
@@ -25,61 +26,59 @@
             android:id="@+id/txtBookTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="Green Mile"
+            android:gravity="start"
             android:textColor="@color/black_700"
             android:textSize="@dimen/font_small_size"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toRightOf="@id/imgBook"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"/>
         <TextView
             android:id="@+id/txtBookGenre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="Fiction"
+            android:gravity="start"
+            tools:text="Fiction"
             android:textColor="@color/black_700"
             android:textSize="@dimen/font_small_size"
             app:layout_constraintTop_toBottomOf="@id/txtBookTitle"
             app:layout_constraintLeft_toRightOf="@id/imgBook"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"/>
         <TextView
             android:id="@+id/txtBookAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="Ehsan Setayesh"
+            android:gravity="start"
+            tools:text="Ehsan Setayesh"
             android:textColor="@color/black_700"
             android:textSize="@dimen/font_small_size"
             app:layout_constraintTop_toBottomOf="@id/txtBookGenre"
             app:layout_constraintLeft_toRightOf="@id/imgBook"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"/>
         <TextView
             android:id="@+id/txtBookCheckout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="Checkout"
+            android:gravity="start"
+            tools:text="Checkout"
             android:textColor="@color/black_700"
             android:textSize="@dimen/font_small_size"
             app:layout_constraintTop_toBottomOf="@id/txtBookAuthor"
             app:layout_constraintLeft_toRightOf="@id/imgBook"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"/>
         <TextView
             android:id="@+id/txtBookYearOfPublished"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="1991"
+            android:gravity="start"
             android:textColor="@color/black_700"
             android:textSize="@dimen/font_small_size"
             app:layout_constraintTop_toBottomOf="@id/txtBookCheckout"
             app:layout_constraintLeft_toRightOf="@id/imgBook"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
