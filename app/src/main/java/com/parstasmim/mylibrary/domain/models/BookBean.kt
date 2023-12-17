@@ -1,6 +1,6 @@
 package com.parstasmim.mylibrary.domain.models
 
-data class Book(
+data class BookBean(
     val title: String?,
     val author: String?,
     val id: String?,

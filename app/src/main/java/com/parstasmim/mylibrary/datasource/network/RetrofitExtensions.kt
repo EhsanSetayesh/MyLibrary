@@ -33,7 +33,7 @@ fun <T> handleUseCaseException(e: Throwable): DataState<T> {
     )
 }
 
-fun <T> handleUseCaseException(response: Response<T>?, gson: Gson): DataState<T> {
+fun <T, V> handleUseCaseException(response: Response<T>?, gson: Gson): DataState<V> {
     val errorMessage = response?.errorBody()?.let {
         gson.fromJson(it.charStream(), ErrorDto::class.java)
     }?.message ?: ErrorHandling.ERROR_SERVER_RESPONSE_IS_UNKNOWN
