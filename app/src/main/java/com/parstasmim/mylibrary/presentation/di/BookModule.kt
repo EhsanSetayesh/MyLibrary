@@ -3,6 +3,7 @@ package com.parstasmim.mylibrary.presentation.di
 import com.google.gson.Gson
 import com.parstasmim.mylibrary.datasource.network.BookApiService
 import com.parstasmim.mylibrary.domain.usecases.add_book.AddBookUseCase
+import com.parstasmim.mylibrary.domain.usecases.delete_book.DeleteBookUseCase
 import com.parstasmim.mylibrary.domain.usecases.get_book.GetBookUseCase
 import com.parstasmim.mylibrary.domain.usecases.get_books.GetBooksUseCase
 import com.parstasmim.mylibrary.domain.usecases.update_book.UpdateBookUseCase
@@ -59,6 +60,18 @@ object BookModule {
         gson: Gson
     ): UpdateBookUseCase {
         return UpdateBookUseCase(
+            service = bookApiService,
+            gson = gson
+        )
+    }
+
+    @Singleton
+    @Provides
+    fun provideDeleteBookUseCase(
+        bookApiService: BookApiService,
+        gson: Gson
+    ): DeleteBookUseCase {
+        return DeleteBookUseCase(
             service = bookApiService,
             gson = gson
         )

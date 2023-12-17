@@ -1,4 +1,4 @@
-package com.parstasmim.mylibrary.domain.usecases.update_book
+package com.parstasmim.mylibrary.domain.usecases.delete_book
 
 import com.google.gson.Gson
 import com.parstasmim.mylibrary.datasource.network.BookApiService
@@ -11,15 +11,15 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-class UpdateBookUseCase(
+class DeleteBookUseCase(
     private val service: BookApiService,
     private val gson: Gson,
 ) {
-    fun execute(bookId: String, bookDto: BookDto): Flow<DataState<Boolean>> = flow {
+    fun execute(bookId: String): Flow<DataState<Boolean>> = flow {
 
         emit(DataState.loading())
 
-        val serviceResponse = service.updateBook(bookId, bookDto)
+        val serviceResponse = service.deleteBook(bookId)
         if (serviceResponse.isSuccessful) {
             emit(
                 DataState.data(
