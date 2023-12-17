@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="space_tiny_size">4dp</dimen>
+    <dimen name="space_small_size">8dp</dimen>
+    <dimen name="space_medium_size">12dp</dimen>
+    <dimen name="space_big_size">16dp</dimen>
+    <dimen name="space_big2_size">18dp</dimen>
+    <dimen name="space_big3_size">20dp</dimen>
+    <dimen name="space_big4_size">25dp</dimen>
+
+    <dimen name="font_tiny_low_size">10sp</dimen>
+    <dimen name="font_tiny_size">12sp</dimen>
+    <dimen name="font_small_size">14sp</dimen>
+    <dimen name="font_medium_size">16sp</dimen>
+    <dimen name="font_big_size">18sp</dimen>
+</resources>

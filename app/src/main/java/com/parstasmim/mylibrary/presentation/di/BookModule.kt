@@ -1,6 +1,8 @@
 package com.parstasmim.mylibrary.presentation.di
 
 import com.google.gson.Gson
+import com.parstasmim.mylibrary.datasource.db.AppDatabase
+import com.parstasmim.mylibrary.datasource.db.book.BookDao
 import com.parstasmim.mylibrary.datasource.network.BookApiService
 import com.parstasmim.mylibrary.domain.usecases.add_book.AddBookUseCase
 import com.parstasmim.mylibrary.domain.usecases.delete_book.DeleteBookUseCase
@@ -19,13 +21,21 @@ object BookModule {
 
     @Singleton
     @Provides
+    fun provideBookDao(db: AppDatabase): BookDao {
+        return db.getBookDao()
+    }
+
+    @Singleton
+    @Provides
     fun provideGetBooksUseCase(
         bookApiService: BookApiService,
-        gson: Gson
+        gson: Gson,
+        bookDao: BookDao
     ): GetBooksUseCase {
         return GetBooksUseCase(
             service = bookApiService,
-            gson = gson
+            gson = gson,
+            bookDao = bookDao
         )
     }
 

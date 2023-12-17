@@ -16,7 +16,7 @@
         android:theme="@style/Theme.MyLibrary"
         tools:targetApi="34">
         <activity
-            android:name=".presentation.modules.MainActivity"
+            android:name=".presentation.modules.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

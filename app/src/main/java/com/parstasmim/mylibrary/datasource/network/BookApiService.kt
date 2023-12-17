@@ -11,7 +11,7 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface BookApiService {
-    @GET("book/")
+    @GET("books/")
     suspend fun getBooks(): Response<List<BookDto>>
 
     @GET("books/{id}")

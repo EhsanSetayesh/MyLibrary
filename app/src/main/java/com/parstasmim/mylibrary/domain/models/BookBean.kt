@@ -6,6 +6,5 @@ data class BookBean(
     val id: String?,
     val genre: String?,
     val yearPublished: Int?,
-    val checkedOut: Boolean?,
-    val createdAt: String?
+    val checkedOut: Boolean?
 )
