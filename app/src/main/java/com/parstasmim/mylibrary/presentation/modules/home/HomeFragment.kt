@@ -9,10 +9,10 @@ import com.parstasmim.mylibrary.domain.models.BookBean
 import com.parstasmim.mylibrary.extensions.findNavControllerSafely
 import com.parstasmim.mylibrary.extensions.processMessageQueue
 import com.parstasmim.mylibrary.presentation.base.BaseFragment
-import com.parstasmim.mylibrary.utils.RandomColorGenerator
 import com.parstasmim.mylibrary.utils.state.StateMessageCallback
+import com.tsuryo.swipeablerv.SwipeLeftRightCallback
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class HomeFragment :
@@ -47,6 +47,15 @@ class HomeFragment :
         binding.rvBooks.apply {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
             adapter = booksListAdapter
+            setListener(object : SwipeLeftRightCallback.Listener {
+                override fun onSwipedLeft(position: Int) {
+
+                }
+
+                override fun onSwipedRight(position: Int) {
+                    booksListAdapter.removeItem(position)
+                }
+            })
         }
     }
 

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import com.parstasmim.mylibrary.R
 import com.parstasmim.mylibrary.databinding.ListItemBookBinding
 import com.parstasmim.mylibrary.domain.models.BookBean
 import com.parstasmim.mylibrary.presentation.base.BaseHolder
@@ -17,25 +18,11 @@ import javax.inject.Inject
 class BooksListAdapter @Inject constructor(
     val randomColorGenerator: IRandomColorGenerator,
     private val onBookItemClicked: (BookBean) -> Unit,
-) :
-    ListAdapter<BookBean, BaseHolder<BookBean>>(object :
-        DiffUtil.ItemCallback<BookBean>() {
+) : ListAdapter<BookBean, BaseHolder<BookBean>>(BookDiffCallback()) {
 
-        override fun areItemsTheSame(
-            oldItem: BookBean,
-            newItem: BookBean
-        ): Boolean {
-            return true
-        }
-
-        override fun areContentsTheSame(
-            oldItem: BookBean,
-            newItem: BookBean
-        ): Boolean {
-            return oldItem == newItem
-        }
-
-    }) {
+    private fun updateData(newItems: List<BookBean>) {
+        submitList(newItems)
+    }
 
     lateinit var context: Context
     override fun onCreateViewHolder(
@@ -62,11 +49,11 @@ class BooksListAdapter @Inject constructor(
 
         override fun bind(value: BookBean, position: Int) {
             binding.apply {
-                txtBookTitle.text = value.title
-                txtBookAuthor.text = value.author
-                txtBookGenre.text = value.genre
+                txtBookTitle.text = context.resources.getString(R.string.bookTitleLabel  , value.title)
+                txtBookAuthor.text = context.resources.getString(R.string.bookAuthorLabel  , value.author)
+                txtBookGenre.text = context.resources.getString(R.string.bookGenreLabel  , value.genre)
                 txtBookCheckout.text = if(value.checkedOut == true) "Checked Out" else "Not Checked Out"
-                txtBookYearOfPublished.text = value.yearPublished.toString()
+                txtBookYearOfPublished.text = context.resources.getString(R.string.bookYoPLabel  , value.title)
                 setRandomTintColor(imgBook)
             }
         }
@@ -75,4 +62,11 @@ class BooksListAdapter @Inject constructor(
             imageView.setColorFilter(randomColor, PorterDuff.Mode.SRC_ATOP)
         }
     }
+
+    fun removeItem(position: Int) {
+        val newList = currentList.toMutableList()
+        newList.removeAt(position)
+        updateData(newList)
+    }
+
 }

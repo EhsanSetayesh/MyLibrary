@@ -4,30 +4,13 @@
     <color name="colorPrimary">#26408A</color>
     <color name="colorPrimaryDark">#26408A</color>
 
-
-    <color name="blue_900">#26408A</color>
-    <color name="blue_500">#3161B6</color>
-    <color name="blue_200">#8798AD</color>
-    <color name="blue_100">#D1D9E5</color>
-    <color name="blue_50">#F0F5FF</color>
-    <color name="blue_alpha80">#333161B6</color>
-
-    <color name="custom_background_blue">#04293A</color>
-    <color name="background_blue">#041C32</color>
-
-    <!--general colors-->
-    <color name="black_900">#121212</color><!--custom view background  04293A-->
-    <color name="black_800">#090909</color><!--background asli 041C32-->
-    <color name="black_700">#333542</color>
+    <color name="black">#000000</color>
 
     <color name="grey_700">#338798AD</color>
     <color name="grey_500">#757575</color>
     <color name="grey_300">#62646E</color>
-    <color name="grey_200">#EEEEEE</color>
-    <color name="grey_100">#9E9E9E</color>
 
-    <color name="white_500">#FAFAFA</color>
-    <color name="white_100">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
     <color name="transparent">#00FFFFFF</color>
 
     <color name="orange_500">#ED7B0F</color>
@@ -35,7 +18,6 @@
 
     <color name="yellow_700">#80FCBC14</color>
     <color name="yellow_500">#FCBC14</color>
-    <color name="yellow_50">#FFFAD5</color>
 
     <color name="red_700">#b00f1f</color>
     <color name="red_300">#EF5350</color>
@@ -50,46 +32,6 @@
     <color name="purple_50">#F9F0FF</color>
 
     <color name="separator_color">#dbdbdb</color>
-    <color name="alpha_100">#E5EEEEEE</color>
-
-
-    <color name="sina_bank_card_background_color">#D5AD42</color>
-    <color name="bank_card_background_alpha_color">#E5EEEEEE</color>
-    <color name="saman_bank_card_background_color">#ffffff</color>
-    <color name="mellat_bank_card_background_color">#ffffff</color>
-    <color name="saderat_bank_card_background_color">#ffffff</color>
-    <color name="maskan_bank_card_background_color">#ffffff</color>
-    <color name="keshavarzi_bank_card_background_color">#ffffff</color>
-    <color name="eghtesad_novin_bank_card_background_color">#ffffff</color>
-    <color name="parsian_bank_card_background_color">#ffffff</color>
-    <color name="pasargad_bank_card_background_color">#ffffff</color>
-    <color name="postbank_bank_card_background_color">#ffffff</color>
-    <color name="tejarat_bank_card_background_color">#ffffff</color>
-    <color name="toseeh_bank_card_background_color">#ffffff</color>
-    <color name="toseeh_saderat_bank_card_background_color">#ffffff</color>
-    <color name="refah_bank_card_background_color">#ffffff</color>
-    <color name="sepah_bank_card_background_color">#ffffff</color>
-    <color name="sarmayeh_bank_card_background_color">#ffffff</color>
-    <color name="sanat_madan_bank_card_background_color">#ffffff</color>
-    <color name="karafarin_bank_card_background_color">#ffffff</color>
-    <color name="markazi_bank_card_background_color">#ffffff</color>
-    <color name="melli_bank_card_background_color">#ffffff</color>
-    <color name="ayandeh_bank_card_background_color">#ffffff</color>
-    <color name="sepah_ansar_bank_card_background_color">#ffffff</color>
-    <color name="mehr_iran_bank_card_background_color">#ffffff</color>
-    <color name="toseeh_taavon_bank_card_background_color">#ffffff</color>
-    <color name="hekmat_iranian_bank_card_background_color">#ffffff</color>
-    <color name="khavarmianeh_bank_card_background_color">#ffffff</color>
-    <color name="dey_bank_card_background_color">#ffffff</color>
-    <color name="resalat_bank_card_background_color">#ffffff</color>
-    <color name="shahr_bank_card_background_color">#ffffff</color>
-    <color name="ghavamin_bank_card_background_color">#ffffff</color>
-    <color name="gardeshgari_bank_card_background_color">#ffffff</color>
-    <color name="kosar_bank_card_background_color">#ffffff</color>
-    <color name="askarieh_bank_card_background_color">#ffffff</color>
-
-
-
 
     <!--    100% — FF-->
     <!--    99% — FC-->

@@ -9,77 +9,86 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rootView"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:layout_marginBottom="5dp"
-        android:background="@color/white_100"
-        android:padding="5dp">
+        android:layout_height="wrap_content"
+        android:minHeight="140dp"
+        android:background="@color/white">
 
         <ImageView
             android:id="@+id/imgBook"
-            android:layout_width="85dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="110dp"
             android:src="@drawable/ic_book1"
+            android:scaleType="centerCrop"
+            android:layout_marginStart="@dimen/space_small_size"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:tint="@color/grey_300" />
+
         <TextView
             android:id="@+id/txtBookTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="start"
-            android:textColor="@color/black_700"
-            android:textSize="@dimen/font_small_size"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/imgBook"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"/>
+            tools:text="Title: EhsanEhsanEhsanEhsanEhsanEhsanEhsanEhsanEhsanEhsan"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_medium_size"
+            />
         <TextView
             android:id="@+id/txtBookGenre"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="start"
-            tools:text="Fiction"
-            android:textColor="@color/black_700"
-            android:textSize="@dimen/font_small_size"
-            app:layout_constraintTop_toBottomOf="@id/txtBookTitle"
-            app:layout_constraintLeft_toRightOf="@id/imgBook"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"/>
+            tools:text="Genre: Fiction"
+            android:textColor="@color/grey_300"
+            android:textSize="@dimen/font_small_size" />
         <TextView
             android:id="@+id/txtBookAuthor"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="start"
-            tools:text="Ehsan Setayesh"
-            android:textColor="@color/black_700"
-            android:textSize="@dimen/font_small_size"
-            app:layout_constraintTop_toBottomOf="@id/txtBookGenre"
-            app:layout_constraintLeft_toRightOf="@id/imgBook"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"/>
+            tools:text="Author: Ehsan Setayesh"
+            android:textColor="@color/grey_300"
+            android:textSize="@dimen/font_small_size" />
         <TextView
             android:id="@+id/txtBookCheckout"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="start"
             tools:text="Checkout"
-            android:textColor="@color/black_700"
-            android:textSize="@dimen/font_small_size"
-            app:layout_constraintTop_toBottomOf="@id/txtBookAuthor"
-            app:layout_constraintLeft_toRightOf="@id/imgBook"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"/>
+            android:textColor="@color/grey_300"
+            android:textSize="@dimen/font_small_size" />
         <TextView
             android:id="@+id/txtBookYearOfPublished"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="start"
-            android:textColor="@color/black_700"
-            android:textSize="@dimen/font_small_size"
-            app:layout_constraintTop_toBottomOf="@id/txtBookCheckout"
-            app:layout_constraintLeft_toRightOf="@id/imgBook"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"/>
+            tools:text="YoP: 1991"
+            android:textColor="@color/grey_300"
+            android:textSize="@dimen/font_small_size" />
 
+        <androidx.constraintlayout.helper.widget.Flow
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:constraint_referenced_ids="txtBookTitle,txtBookGenre,txtBookAuthor,txtBookCheckout,txtBookYearOfPublished"
+            app:flow_horizontalAlign="start"
+            app:flow_horizontalStyle="spread_inside"
+            app:flow_verticalStyle="spread_inside"
+            app:flow_wrapMode="aligned"
+            android:layout_margin="@dimen/space_small_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/space_small_size"
+            app:layout_constraintBottom_toTopOf="@+id/separator"
+            app:layout_constraintStart_toEndOf="@+id/imgBook"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/separator_color"
+            app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

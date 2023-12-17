@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MyLibrary</string>
+    <string name="bookTitleLabel">%1$s</string>
+    <string name="bookAuthorLabel">Author: %1$s</string>
+    <string name="bookGenreLabel">Genre: %1$s</string>
+    <string name="bookYoPLabel">YoP: %1$s</string>
+
 </resources>

@@ -160,6 +160,9 @@ dependencies {
     //WorkManager
     implementation(Deps.work_manager)
 
+
+    implementation ("com.github.tsuryo:Swipeable-RecyclerView:1.1")
+
     //Tests
     testImplementation(Deps.junit)
     androidTestImplementation(Deps.testRunner)
