@@ -5,6 +5,7 @@ import com.parstasmim.mylibrary.datasource.network.BookApiService
 import com.parstasmim.mylibrary.domain.usecases.add_book.AddBookUseCase
 import com.parstasmim.mylibrary.domain.usecases.get_book.GetBookUseCase
 import com.parstasmim.mylibrary.domain.usecases.get_books.GetBooksUseCase
+import com.parstasmim.mylibrary.domain.usecases.update_book.UpdateBookUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -46,6 +47,18 @@ object BookModule {
         gson: Gson
     ): GetBookUseCase {
         return GetBookUseCase(
+            service = bookApiService,
+            gson = gson
+        )
+    }
+
+    @Singleton
+    @Provides
+    fun provideUpdateBookUseCase(
+        bookApiService: BookApiService,
+        gson: Gson
+    ): UpdateBookUseCase {
+        return UpdateBookUseCase(
             service = bookApiService,
             gson = gson
         )
