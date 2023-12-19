@@ -13,25 +13,24 @@ import com.parstasmim.mylibrary.utils.state.StateMessageCallback
 import com.tsuryo.swipeablerv.SwipeLeftRightCallback
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class HomeFragment :
     BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private val _viewModel: HomeViewModel by viewModels()
+    private var selectedBookPositionForDelete = -1 // -1 is not selected
 
     private val booksListAdapter: BooksListAdapter by lazy {
         BooksListAdapter(_viewModel.randomColorGenerator) {
-
         }
     }
 
     override fun FragmentHomeBinding.initialize() {
         uiCommunicationListener.showStatusBar()
-//        uiCommunicationListener.showToolbar(
-//            toolbarTitle = resources.getString(R.string.page_title_samat),
-//            onBackButtonPressedCallBack = { onBackButtonPressed() },
-//        )
+        uiCommunicationListener.showToolbar(
+            toolbarTitle = resources.getString(R.string.page_title_home),
+            showBack = false,
+        )
 
         setupViews()
         setupObserver()
@@ -49,21 +48,31 @@ class HomeFragment :
             adapter = booksListAdapter
             setListener(object : SwipeLeftRightCallback.Listener {
                 override fun onSwipedLeft(position: Int) {
-
+                    //TODO show bottomsheet to update book info
                 }
 
                 override fun onSwipedRight(position: Int) {
-                    booksListAdapter.removeItem(position)
+                    selectedBookPositionForDelete = position
+                    booksListAdapter.currentList[position]?.let {
+                        deleteBook(it.id)
+                    }
                 }
             })
         }
     }
 
+    private fun deleteBook(bookId: String?) {
+        bookId?.let {
+            _viewModel.onTriggerEvent(
+                HomeEvent.DeleteBook(it))
+        }
+    }
+
     private fun setupObserver() {
         _viewModel.state.observe(viewLifecycleOwner) { state ->
-            uiCommunicationListener.showFullScreenLoading(state.isLoading)
-
+            checkForLoading(state.isLoading)
             checkForBookList(state.booksList)
+            checkForBookIsDeleted(state.bookIsDeleted)
 
             processMessageQueue(
                 context = requireActivity(),
@@ -73,6 +82,18 @@ class HomeFragment :
                         _viewModel.onTriggerEvent(HomeEvent.OnRemoveHeadFromQueue)
                     }
                 })
+        }
+    }
+
+    private fun checkForBookIsDeleted(bookIsDeleted: Boolean?) {
+        bookIsDeleted?.let {
+            booksListAdapter.removeItem(selectedBookPositionForDelete)
+        }
+    }
+
+    private fun checkForLoading(loading: Boolean?) {
+        loading?.let {
+            uiCommunicationListener.showFullScreenLoading(loading)
         }
     }
 

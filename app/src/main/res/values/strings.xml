@@ -4,5 +4,7 @@
     <string name="bookAuthorLabel">Author: %1$s</string>
     <string name="bookGenreLabel">Genre: %1$s</string>
     <string name="bookYoPLabel">YoP: %1$s</string>
+    <string name="page_title_home">BOOKS LIST</string>
+    <string name="please_wait">Please Wait...</string>
 
 </resources>

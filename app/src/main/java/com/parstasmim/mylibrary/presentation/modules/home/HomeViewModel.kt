@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.parstasmim.mylibrary.domain.usecases.delete_book.DeleteBookUseCase
 import com.parstasmim.mylibrary.domain.usecases.get_books.GetBooksUseCase
 import com.parstasmim.mylibrary.utils.IRandomColorGenerator
 import com.parstasmim.mylibrary.utils.state.StateMessage
@@ -17,7 +18,8 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     val randomColorGenerator: IRandomColorGenerator,
-    private val getBooksUseCase: GetBooksUseCase
+    private val getBooksUseCase: GetBooksUseCase,
+    private val deleteBookUseCase: DeleteBookUseCase
 ) : ViewModel() {
 
     private val TAG: String = "HomeViewModel"
@@ -34,6 +36,29 @@ class HomeViewModel @Inject constructor(
             is HomeEvent.OnRemoveHeadFromQueue -> {
                 removeHeadFromQueue()
             }
+
+            is HomeEvent.DeleteBook -> {
+                deleteBook(event.bookId)
+            }
+        }
+    }
+
+    private fun deleteBook(bookId: String) {
+        resetState()
+
+        state.value?.let { state ->
+            deleteBookUseCase.execute(bookId).onEach { dataState ->
+
+                this.state.value = state.copy(isLoading = dataState.isLoading)
+
+                dataState.data?.let { bookIsDeleted ->
+                    this.state.value = state.copy(bookIsDeleted = bookIsDeleted)
+                }
+
+                dataState.stateMessage?.let { stateMessage ->
+                    appendToMessageQueue(stateMessage)
+                }
+            }.launchIn(viewModelScope)
         }
     }
 
@@ -56,11 +81,12 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun resetState() {
+    private fun resetState() {
         state.value?.let { state ->
             this.state.value = state.copy(
-                isLoading = false,
+                isLoading = null,
                 booksList = null,
+                bookIsDeleted = null
             )
         }
     }

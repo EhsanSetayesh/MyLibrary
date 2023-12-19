@@ -7,5 +7,6 @@ import com.parstasmim.mylibrary.utils.state.StateMessage
 data class HomeState(
     val isLoading: Boolean? = null,
     val booksList: List<BookBean>? = null,
+    val bookIsDeleted: Boolean? = null,
     val queue: Queue<StateMessage> = Queue(mutableListOf()),
     )

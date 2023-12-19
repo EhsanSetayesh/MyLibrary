@@ -17,8 +17,8 @@
         android:background="@color/grey_700">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:background="@drawable/shape_rec_bg_white_radius_5dp"
             android:backgroundTint="@color/grey_400"
             app:layout_constraintRight_toRightOf="parent"
@@ -33,7 +33,7 @@
                 android:id="@+id/txtLoading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="loading..."
+                android:text="@string/please_wait"
                 android:textColor="@color/white"
                 android:textSize="@dimen/font_medium_size" />
 
